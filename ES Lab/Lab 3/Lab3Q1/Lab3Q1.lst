@@ -1,0 +1,128 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             reset,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 EXPORT           Reset_Handler
+    9 00000000                 ENTRY
+   10 00000000         Reset_Handler
+   11 00000000 4F08            LDR              R7,=DST
+   12 00000002 F04F 010A       MOV              R1,#10
+   13 00000006 F04F 0500       MOV              R5,#0
+   14 0000000A F04F 0400       MOV              R4,#0
+   15 0000000E F04F 0602       MOV              R6,#2
+   16 00000012 FB01 1401       MLA              R4,R1,R1,R1
+   17 00000016         LOOP
+   18 00000016 1BA4            SUBS             R4,R6
+   19 00000018 F105 0501       ADD              R5,#1
+   20 0000001C 42B4            CMP              R4,R6
+   21 0000001E D2FA            BCS              LOOP
+   22 00000020         
+   23 00000020         
+   24 00000020         
+   25 00000020         
+   26 00000020 603D            STR              R5,[R7]
+   27 00000022         STOP
+   28 00000022 E7FE            B                STOP
+   29 00000024 00000000        AREA             data, DATA,READWRITE
+   30 00000000 00000000 
+                       DST     DCD              0x0
+   31 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Lab3Q1.d
+ -oLab3Q1.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=Lab3Q1.lst Lab3Q1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file Lab3Q1.s
+   Uses
+      At line 2 in file Lab3Q1.s
+Comment: __Vectors used once
+reset 00000000
+
+Symbol: reset
+   Definitions
+      At line 1 in file Lab3Q1.s
+   Uses
+      None
+Comment: reset unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOOP 00000016
+
+Symbol: LOOP
+   Definitions
+      At line 17 in file Lab3Q1.s
+   Uses
+      At line 21 in file Lab3Q1.s
+Comment: LOOP used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file Lab3Q1.s
+   Uses
+      At line 5 in file Lab3Q1.s
+      At line 8 in file Lab3Q1.s
+
+STOP 00000022
+
+Symbol: STOP
+   Definitions
+      At line 27 in file Lab3Q1.s
+   Uses
+      At line 28 in file Lab3Q1.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file Lab3Q1.s
+   Uses
+      None
+Comment: mycode unused
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 30 in file Lab3Q1.s
+   Uses
+      At line 11 in file Lab3Q1.s
+Comment: DST used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 29 in file Lab3Q1.s
+   Uses
+      None
+Comment: data unused
+2 symbols
+341 symbols in table
